@@ -1,1 +1,3 @@
-# JavaScript-2
+# JavaScript 2
+## Lärare: Mahmud Al Hakim
+## Nackademin - Stockholms
