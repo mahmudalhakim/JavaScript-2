@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Inköpslista</title>
+  </head>
+  <body>
+    <h1>Vad vill du handla idag?</h1>
+    <input type="text" id="newItem" autofocus />
+    <button id="addBtn">Lägg till</button>
+    <ul id="list"></ul>
+
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function() {
+        $("#addBtn").click(send);
+        $("#newItem").keypress(function(e) {
+          if (e.which == 13) send();
+        });
+      });
+
+      function send() {
+        let item = $("#newItem").val();
+        if (item != "") {
+          $("#list").append("<li>" + item + "</li>");
+          $("#newItem").val("");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Formulärvalidering</title>
+    <style>
+      .message {
+        color: red;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#">
+      <div>
+        <label for="user"><b>Username</b></label> <br />
+        <input id="name" type="text" required /> <br />
+        <span class="message">The username must be at least 3 characters.</span>
+      </div>
+      <div>
+        <label for="pass"><b>Password </b></label> <br />
+        <input id="pass" type="password" required /> <br />
+        <span class="message">The password must be at least 3 characters.</span>
+      </div>
+      <input type="submit" value="Login" />
+    </form>
+
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function() {
+
+        // 1. Välj inputfält som har attributet required
+        $("input[required]").blur(function() {
+
+          // 2. Vid blur testa om fältet innehåller minst 3 tecken
+          if ($(this).val().length < 3) {
+
+            // 3. Visa meddelandet som ligger efter det aktuella fältet
+            $(this)
+              .siblings(".message")
+              .show(200);
+
+          } else {
+              
+            // 4. Dölj meddelandet om fältet innehåller minst 3 tecken
+            $(this)
+              .siblings(".message")
+              .hide(200);
+          }
+        }); // blur
+      });
+    </script>
+  </body>
+</html>
