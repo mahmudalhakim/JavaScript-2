@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Callback functions</title>
+  </head>
+  <body>
+    <h1>Callback functions</h1>
+    <script>
+      // Exempel 1
+      // https://developer.mozilla.org/en-US/docs/Glossary/Callback_function
+      function greeting(name) {
+        alert("Hello " + name);
+      }
+      function processUserInput(callback) {
+        var name = prompt("Please enter your name.");
+        callback(name);
+      }
+      // processUserInput(greeting);
+
+
+      // Synchronous callback function
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+      var array1 = ["a", "b", "c"];
+
+      console.log("START");
+      array1.forEach(function(element) {
+        console.log(element);
+      });
+      console.log("FINISH");
+
+      // Asynchronous callback function
+      console.log("START");
+      setTimeout(function() {
+        for (const i of array1) {
+            console.log(i);
+        }
+      }, 1000);
+      console.log("FINISH");
+
+    </script>
+  </body>
+</html>

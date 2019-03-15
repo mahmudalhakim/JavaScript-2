@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Local Storage Demo</title>
+</head>
+<body>
+    <h1>Local Storage Demo</h1>
+   
+    <script>
+        // Spara data i localStorage
+        localStorage.setItem("name", "Mahmud");
+
+        // Hämta data från localStorage
+        let name = localStorage.getItem("name");
+        console.log(name);
+
+        // Ta bort från localStorage
+        localStorage.removeItem("name");
+
+        // Test
+        name = localStorage.getItem("name");
+        console.log(name); // null
+
+        // Rensa localStorage
+        localStorage.setItem("name", "Mahmud");
+        console.log(localStorage);
+        
+        localStorage.clear();
+        console.log(localStorage);
+
+
+    </script>
+</body>
+</html>

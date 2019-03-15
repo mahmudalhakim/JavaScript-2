@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ajax via jQuery</title>
+  </head>
+  <body>
+    <h1>Ajax via jQuery</h1>
+    <div id="demo"></div>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+
+        $(document).ready(function() {
+
+            $("#demo").load("demo.txt", function(response,status,xhr){
+                // response - contains the result data from the request
+                console.log(response);
+                // status - contains the status of the request
+                console.log(status);
+                // xhr - contains the XMLHttpRequest object
+                console.log(xhr);
+            });
+        });
+      
+
+    </script>
+  </body>
+</html>

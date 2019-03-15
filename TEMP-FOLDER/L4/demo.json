@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "name": "Mahmud Al Hakim",
+  "username": "mahmud",
+  "email": "mahmud@example.com",
+  "phone": "076-1659999",
+  "company": {
+    "name": "Web Academy AB",
+    "address": "Hemfridsvägen, 192 67 Sollentuna",
+    "website": "http://webacademy.se"
+  }
+}
