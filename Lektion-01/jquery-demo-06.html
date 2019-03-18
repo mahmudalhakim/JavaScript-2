@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Demo 6</title>
+</head>
+<body>
+    <h1>jQuery - Demo 6</h1>
+    <h2>Infoga element</h2>
+    <ul>
+        <li>Item</li>
+    </ul>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+
+        let $ul = $('ul');
+
+        // append()
+        $ul.append('<li>Append</li>');
+
+        // prepend()
+        $ul.prepend('<li>Prepend</li>');
+        
+        // before()
+        $ul.before('<p>Before</p>');
+
+        // after()
+        $ul.after('<p>After</p>');
+
+
+    }); // Ready
+    </script>
+</body>
+</html>

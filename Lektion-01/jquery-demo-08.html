@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inköpslista</title>
+</head>
+<body>
+    <h1>Inköpslista</h1>
+    <h2>Vad vill du handla idag?</h2>
+    <input id="newItem" type="text" autofocus>
+    <button id="addBtn">Lägg till</button>
+    <ul id="list"></ul>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Hämta element
+            let $item   = $('#newItem');
+            let $addBtn = $('#addBtn');
+            let $list   = $('#list');
+
+            // Kör funktionen addItem vid klick på knappen
+            $addBtn.click(addItem);
+
+            // Kör funktionen addItem vid Retur (Enter)
+            $item.keypress(function(e){
+                // console.log(e);
+                if(e.which == 13){
+                    addItem();
+                }
+            });
+            
+            function addItem(){
+                $value = $item.val();
+                if($value !== ''){
+                    $list.append('<li>'+$value+'</li>');
+                    $item.val('');
+                }
+            }
+    });
+    
+
+    </script>
+</body>
+</html>

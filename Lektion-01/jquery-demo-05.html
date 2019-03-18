@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Demo 5</title>
+</head>
+<body>
+    <h1>jQuery - Demo 5</h1>
+    <h2>Manipulera innehåll</h2>
+    
+    <h3>Metoden html()</h3>
+    <p id="demo1">Metoden <b>html()</b> hämtar eller ändrar html-kod.</p>
+    <!-- Ändra innehåll och HTML med jQuery-->
+    <p id="demo2"></p>
+
+    <h3>Metoden text()</h3>
+    <p id="demo3">Metoden <i>text()</i> hämtar eller sätter text (OBS! Ej HTML). <br>
+    Metoden text är säkrare för att undvika XSS-attacker!<br>
+    Metoden text rensar HTML-kod.
+    </p>
+    <!-- Ändra text med jQuery (ej HTML) -->
+    <p id="demo4"></p>
+
+    <h3>Metoden val()</h3>
+    <input type="text" id="demo5" value="Lorem Ipsum">
+
+    <h3>Metoden remove()</h3>
+    <p id="demo6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo ut tempora tempore corrupti, quas non, rem amet odit consequuntur ex porro vitae corporis fugit excepturi illo fuga adipisci. Eius, dolorum!</p>
+
+    <h3>Metoden hide()</h3>
+    <p id="demo7">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore a natus labore similique quisquam autem suscipit cumque, consequuntur ullam repellendus nihil expedita iste aperiam rem. Vel quam magnam error aperiam!</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery-demo-05.js"></script>
+</body>
+</html>

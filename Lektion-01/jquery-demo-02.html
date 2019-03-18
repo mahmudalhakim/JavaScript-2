@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Demo 2</title>
+</head>
+<body>
+    <h1>jQuery - Demo 2</h1>
+    <h2>Selektorer (Selectors)</h2>
+    
+    <h3>Type Selector</h3>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum corporis, reprehenderit consequuntur, dolore odit vero molestiae repellendus labore, adipisci itaque minima. Temporibus eum facilis fuga. Provident sunt aspernatur exercitationem dolorum?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, iste corporis a excepturi recusandae magni reprehenderit explicabo omnis ea, eum magnam molestiae commodi optio asperiores fugit facilis, consequatur pariatur quos!</p>
+    
+    <h3>ID Selector</h3>
+    <p id="demo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ipsum laboriosam architecto, odio maiores natus in quod! Iusto, itaque officia voluptatem ab impedit hic molestiae inventore voluptate soluta corporis architecto.</p>
+    
+    <h3>Class Selector</h3>
+    <p class="demo">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, delectus ipsam ut laborum aliquid eius, adipisci error molestiae maxime minus magni qui expedita vel! Magnam, at neque. Totam, doloremque distinctio!</p>
+    <div class="demo">DIV. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, delectus ipsam ut laborum aliquid eius, adipisci error molestiae maxime minus magni qui expedita vel! Magnam, at neque. Totam, doloremque distinctio!</div>
+   
+    <h3>Group of selectors</h3>
+    <h4>Demo</h4>
+    <h4>Demo</h4>
+    <h5>Demo</h5>
+    <h5>Demo</h5>
+    <div id="group-demo"></div>
+    <div class="group-demo"></div>
+
+    <h3>Descendant combinator</h3>
+    <ul id="menu">
+        <li><a href="#">Ta bort mig!</a></li>
+        <li><a href="#">Ta bort mig!</a></li>
+    </ul>
+    <a href="#">Behåll mig!</a>
+    <a href="#">Behåll mig!</a>
+
+    <h3>Child combinators</h3>
+    <div>
+        <p>P direkt under div. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa maiores iure impedit magnam repudiandae eos voluptates! Numquam soluta odio quidem a quos. Odit maiores harum, velit ex alias sint animi.</p>
+        <p>P direkt under div. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa maiores iure impedit magnam repudiandae eos voluptates! Numquam soluta odio quidem a quos. Odit maiores harum, velit ex alias sint animi.</p>
+        <p>P direkt under div. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa maiores iure impedit magnam repudiandae eos voluptates! Numquam soluta odio quidem a quos. Odit maiores harum, velit ex alias sint animi.</p>
+        <section>
+            <p>P som barnbarn till div. Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet fuga quasi accusamus? Rem quasi autem quod nemo veritatis recusandae illo. Libero deleniti quisquam, officiis similique suscipit aspernatur ut ea consequatur.</p>
+            <p>P som barnbarn till div. Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet fuga quasi accusamus? Rem quasi autem quod nemo veritatis recusandae illo. Libero deleniti quisquam, officiis similique suscipit aspernatur ut ea consequatur.</p>
+            <p>P som barnbarn till div. Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet fuga quasi accusamus? Rem quasi autem quod nemo veritatis recusandae illo. Libero deleniti quisquam, officiis similique suscipit aspernatur ut ea consequatur.</p>
+        </section>
+        <p>P direkt under div. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa maiores iure impedit magnam repudiandae eos voluptates! Numquam soluta odio quidem a quos. Odit maiores harum, velit ex alias sint animi.</p>
+        <p>P direkt under div. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa maiores iure impedit magnam repudiandae eos voluptates! Numquam soluta odio quidem a quos. Odit maiores harum, velit ex alias sint animi.</p>
+        <p>P direkt under div. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa maiores iure impedit magnam repudiandae eos voluptates! Numquam soluta odio quidem a quos. Odit maiores harum, velit ex alias sint animi.</p>
+    </div>
+
+    <h3>Sibling combinators</h3>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio culpa nam ut? Magni doloribus vero, consequatur aliquid nobis odit facere quos corporis, earum, libero dolorem consequuntur? Nisi sit quaerat distinctio.</div>
+    <p>P är syskon till div, alltså ligger direkt efter en div.
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora esse sapiente veniam totam qui, autem aperiam a. Obcaecati amet ullam explicabo ex. Sed qui, iure aliquid neque aperiam quibusdam delectus!</p>
+    <p>P som inte ligger direkt efter div.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, quaerat quibusdam unde fugiat velit tenetur autem fuga, et rerum nisi officia, saepe optio amet rem inventore. Officia delectus inventore aperiam?</p>
+
+    <h3>Subsequent-sibling combinator</h3>
+    <p>P före en article-tagg.</p>
+    <article>En article-tagg.</article>
+    <p>P efter en article-tagg</p>
+    <article>
+        <p>P inne i en article-tagg</p>
+    </article>
+    <p>Flera P efter en article-tagg (syskon)</p>
+    <p>Flera P efter en article-tagg (syskon)</p>
+    <p>Flera P efter en article-tagg (syskon)</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery-demo-02.js"></script>
+</body>
+</html>
