@@ -2,8 +2,10 @@
 
 $(document).ready(function() {
   // 1. Välj alla inputfält som har attributet required
-  $("input[required]").keypress(function() {
-    // 2. Vid blur testa om fältet innehåller minst 3 tecken
+  // Tips: Använd keyup för att validera medans man skriver
+  $("input[required]").blur(validate);
+  // 2. Vid blur testa om fältet innehåller minst 3 tecken
+  function validate () {
     $(this).val().length < 3
       ? // 3. Visa meddelandet som ligger efter det aktuella fältet
         $(this)
@@ -13,5 +15,5 @@ $(document).ready(function() {
         $(this)
           .siblings(".message")
           .hide(500);
-  });
-});
+  }
+}); // ready
