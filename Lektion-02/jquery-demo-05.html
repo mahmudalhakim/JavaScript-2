@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Inköpslista - v 2.0</title>
+    <title>Inköpslista - 2.0</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
       h1{
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         font-variant: small-caps;
+        font-weight: normal;
       }
       .strike {
         text-decoration: line-through;
@@ -21,8 +22,8 @@
   <body class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1 class="text-center display-3 text-info">Min Inköpslista</h1>
-        <h2>Vad vill du handla idag?</h2>
+        <h1 class="text-center text-info">Min Inköpslista</h1>
+        <h2 class="text-center">Vad vill du handla idag?</h2>
         <div class="row">
           <div class="col-md-9">
             <input id="newItem" type="text" autofocus class="form-control mb-2" />
@@ -42,9 +43,38 @@
     
     <script>
     
+    // 1. Hämta dina element (caching)
+
+    // 2. Kör funktionen addItem vid klick på knappen med id addBtn
+
+    // 3. Arbeta med funktionen addItem
+    // 3.1 Hämta texten som finns i input-fältet med metoden val()
+    // 3.2 Om texten inte är tomt lägg till en rad i tabellen med metoden append()
+    // 3.2.1 Raden ska innehålla tre celler (td)
+    // 3.2.1.1  td nr 1 innehåller en input med typen checkbox. 
+    //          Lägg till klassen done 
+    // 3.2.1.2  td nr 2 innehåller texten som du hämtat under steg 3.1    
+    // 3.2.1.3  td nr 3 innehåller en Ta-Bort-Knapp 
+    //          Lägg till klassen delete  
+    // 3.3 Töm textfältet
+
+    // 4. Arbeta med checkboxen som har klassen done (se steg 3.2.1.1)
+    // 4.1. Tips: Välj tabellen som selektor och koppla metoden on()
+    //      Metoden click funkar inte på dynamiska element
+    //      Alltså på element som läggs till efter document.ready()
+    //      Syntaxen ser ut så här
+    //      $('table').on('click' , '.done' , function () {} );
+    // 4.2  Gå upp i DOM och leta efter en parent tills du hittar table-taggen 
+    //      med metoden parentsUntil()
+    //      Växla klassen strike (finns redan i CSS)
     
+    // 5. Arbeta med knappen som har klassen delete (se steg 3.2.1.3)
+    // 5.1. Tips: 
+    //      $('table').on('click' , '.delete' , function () {} );
+    // 5.2  Gå upp table-taggen med parentsUntil
+    //      Ta bort raden
+
     </script>
     
-    <script src=""></script>
   </body>
 </html>
