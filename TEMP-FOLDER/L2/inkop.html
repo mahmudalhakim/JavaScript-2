@@ -7,6 +7,10 @@
     <title>Inköpslista</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
+      h1{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-variant: small-caps;
+      }
       .strike {
         text-decoration: line-through;
         background-color: #f3105413;
@@ -15,11 +19,24 @@
     </style>
   </head>
   <body class="container">
-    <h1>Inköpslista</h1>
-    <h2>Vad vill du handla idag?</h2>
-    <input id="newItem" type="text" autofocus class="form-control mb-2" />
-    <button id="addBtn" class="btn btn-outline-info mb-2">Lägg till</button>
-    <table id="table" class="table"></table>
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1 class="text-center display-3 text-info">Min Inköpslista</h1>
+        <h2>Vad vill du handla idag?</h2>
+        <div class="row">
+          <div class="col-9">
+            <input id="newItem" type="text" autofocus class="form-control mb-2" />
+          </div>
+          <div class="col-3">
+            <button id="addBtn" class="form-control  btn btn-outline-info mb-2">Lägg till</button>
+          </div>
+        </div>
+        <div id="message" style="display:none;" class="alert alert-danger">
+          Vill du verkligen handla en tom grej :-) 
+        </div>
+        <table id="table" class="table table-hover"></table>
+      </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="inkop.js"></script>

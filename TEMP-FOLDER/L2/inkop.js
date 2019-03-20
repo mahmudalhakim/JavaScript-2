@@ -19,12 +19,15 @@ $(document).ready(function () {
     $value = $item.val();
     if ($value !== "") {
       let html = `<tr>
-            <td><input type="checkbox" class="done"></td>
+            <td style="width:30px"><input type="checkbox" class="done"></td>
             <td>${$value}</td>
-            <td><button class="btn btn-sm btn-outline-danger delete">Ta bort</button></td>
+            <td class="text-right"><button class="btn btn-sm btn-outline-danger delete ml-auto">Ta bort</button></td>
             </tr>`;
       $table.append(html);
       $item.val("");
+    }
+    else{
+      $('#message').fadeIn(500).delay(5000).fadeOut(500);
     }
   }
 
