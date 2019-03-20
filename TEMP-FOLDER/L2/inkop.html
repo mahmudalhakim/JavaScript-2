@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Inköpslista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      .strike {
+        text-decoration: line-through;
+        background-color: #f3105413;
+      }
+
+    </style>
+  </head>
+  <body class="container">
+    <h1>Inköpslista</h1>
+    <h2>Vad vill du handla idag?</h2>
+    <input id="newItem" type="text" autofocus class="form-control mb-2" />
+    <button id="addBtn" class="btn btn-outline-info mb-2">Lägg till</button>
+    <table id="table" class="table"></table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="inkop.js"></script>
+  </body>
+</html>
