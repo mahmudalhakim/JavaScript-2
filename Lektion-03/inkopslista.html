@@ -43,7 +43,6 @@
         <div  id="message" style="display:none;"
               class="alert alert-danger"
         >
-        <strong>OBS!</strong> <br> 
         Vill du verkligen handla en tom grej :-)
           <button
             type="button"
@@ -114,12 +113,21 @@
 
           // Dölj felmeddelandet
           $("#message").fadeOut(500);
+
         } else {
           console.log("OBS! Visa ett felmeddelande");
+
           $("#message").fadeIn(500);
-          //.delay(5000)
-          //.fadeOut(500);
-          // TODO: Arbeta med x-knappen för att dölja 
+          // Vänta 5 sekunder och ta bort meddelandet
+          //.delay(5000)   
+          //.fadeOut(500) 
+          // Eller   
+          // Dölj felmeddelandet med x-knappen 
+          $('.close').click(function () {
+              $('#message').fadeOut(500);
+              // Lägg fokus på inputfältet
+              $item.focus();
+          })
         }
 
         // 3.3 Töm textfältet
@@ -134,10 +142,12 @@
       //      $('table').on('click' , '.done' , function () {} );
       $table.on('click', '.done' , function () {
           // console.log("Checkbox i ikryssad");
-          // 4.2  Gå upp i DOM-trädet och leta efter en parent tills du hittar table-taggen
-          //      med metoden parentsUntil()
+          // 4.2  Gå upp i DOM-trädet och leta efter en parent 
+          // tills du hittar table-taggen
+          // med metoden parentsUntil('table) 
+          // eller metoden parents('tr')
           $(this)
-                .parentsUntil('table')  
+                .parents('tr')  
                 // eller    .parents('tr') 
           // Växla klassen strike (finns redan i CSS)
                 .toggleClass('strike')
@@ -148,7 +158,7 @@
       //      $('table').on('click' , '.delete' , function () {} );
       $table.on('click', '.delete' , function () {
       // 5.2  Gå upp till table-taggen med metoden parentsUntil
-        $(this).parentsUntil('table')
+        $(this).parents('tr')
       //      Ta bort raden
                .remove();
       });
