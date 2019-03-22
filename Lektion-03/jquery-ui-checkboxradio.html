@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery UI Checkboxradio</title>
+    <!-- jQuery UI CSS -->
+    <!-- OBS! Ändra smoothness till base i länken
+         för att få temat som visas i demos 
+         https://jqueryui.com/checkboxradio/#default
+    -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    
+    <!--  En lokal CSS-fil
+    <link rel="stylesheet" href="jquery-ui.css"> 
+    -->
+</head>
+<body>
+    
+<h1>jQuery UI - Checkboxradio</h1>
+
+<fieldset>
+        <legend>Välj storlek: </legend>
+
+        <label for="radio-1">XS</label>
+        <input type="radio" name="radio-1" id="radio-1">
+
+        <label for="radio-2">S</label>
+        <input type="radio" name="radio-1" id="radio-2">
+
+        <label for="radio-3">M</label>
+        <input type="radio" name="radio-1" id="radio-3">
+
+        <label for="radio-4">L</label>
+        <input type="radio" name="radio-1" id="radio-4">
+
+        <label for="radio-5">XL</label>
+        <input type="radio" name="radio-1" id="radio-5">
+      </fieldset>
+
+    <!-- 1. Länk till jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 2. Länk till jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- 3. Egen JavaScript-kod -->
+    <script>    
+    $( function() {
+        $( "input" ).checkboxradio();
+    } );
+    </script>
+</body>
+</html>

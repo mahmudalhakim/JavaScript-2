@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>jQuery UI Autocomplete</title>
+    <!-- jQuery UI CSS -->
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+  </head>
+  <body>
+    <h1>jQuery UI - Autocomplete</h1>
+
+    <div class="ui-widget">
+      <label for="tags">Sök efter ett programspråk här nedan</label> <br> <br>
+      <input id="tags" />
+    </div>
+
+    <!-- 1. Länk till jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 2. Länk till jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- 3. Egen JavaScript-kod -->
+    <script>
+      $(function() {
+        let lanugauges = [
+          "ActionScript",
+          "AppleScript",
+          "Asp",
+          "BASIC",
+          "C",
+          "C++",
+          "Clojure",
+          "COBOL",
+          "ColdFusion",
+          "Erlang",
+          "Fortran",
+          "Groovy",
+          "Haskell",
+          "Java",
+          "JavaScript",
+          "Lisp",
+          "Perl",
+          "PHP",
+          "Python",
+          "Ruby",
+          "Scala",
+          "Scheme"
+        ];
+       
+        $("#tags").autocomplete({
+          source: lanugauges
+        });
+      });
+      
+    </script>
+  </body>
+</html>

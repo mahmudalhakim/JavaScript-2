@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery UI Tooltips</title>
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+</head>
+<body>
+    
+<h1>jQuery UI - Tooltips</h1>
+
+ 
+<p>
+    <a href="#" title="Demo på jQuery UI tooltips">Tooltips</a> 
+    can be attached to any element. When you hover
+    the element with your mouse, the title attribute is displayed in a little box next to the element, just like a native tooltip.</p>
+    <p>But as it's not a native tooltip, it can be styled. Any themes built with
+    <a href="http://nackademin.se" 
+       title="Mycket bra kurser inom Frontend och Backend">
+    Nackademin</a>
+    will also style tooltips accordingly.</p>
+    <p>Tooltips are also useful for form elements, to show some additional information in the context of each field.</p>
+    <p>
+        <label for="age">Your age:</label>
+        <input id="age" 
+        title="We ask for your age only for statistical purposes."></p>
+    <p>Hover the field to see the tooltip.</p>
+
+    <img src="https://picsum.photos/200/300" 
+         title="En gratis bild från Unsplash" alt="">
+
+    <!-- 1. Länk till jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 2. Länk till jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- 3. Egen JavaScript-kod -->
+    <script>    
+        $( function() {
+            $( document ).tooltip();
+        } );
+    </script>
+</body>
+</html>

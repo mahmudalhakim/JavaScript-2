@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Inköpslista - 2.0</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-variant: small-caps;
+        font-weight: normal;
+      }
+      .strike {
+        text-decoration: line-through;
+        background-color: #f3105413;
+      }
+    </style>
+  </head>
+  <body class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1 class="text-center text-info">Min Inköpslista</h1>
+        <h2 class="text-center">Vad vill du handla idag?</h2>
+        <div class="row">
+          <div class="col-md-9">
+            <input id="item" type="text" autofocus class="form-control mb-2" />
+          </div>
+          <div class="col-md-3">
+            <button id="addBtn" class="form-control  btn btn-outline-info mb-2">
+              Lägg till
+            </button>
+          </div>
+        </div>
+
+        <!-- Felmeddelande - start -->
+        <div  id="message" style="display:none;"
+              class="alert alert-danger"
+        >
+        <strong>OBS!</strong> <br> 
+        Vill du verkligen handla en tom grej :-)
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+         <!-- Felmeddelande - slut -->
+
+        <table id="table" class="table table-hover"></table>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+
+    $(document).ready( function () {
+
+    
+
+      // 1. Hämta dina element (caching)
+      let $table = $("#table");
+      let $addBtn = $("#addBtn");
+      let $item = $("#item");     // input-fältet
+
+      // 2. Kör funktionen addItem vid klick på knappen med id addBtn
+      $addBtn.click(addItem);
+
+      // 2.1 Kör funktionen addItem vid Retur (Enter) på input-fältet
+      // OBS! Använd inte keypress om du behöver trycka på Backsteg-tangenten
+      $item.keypress(function (event) {
+          // console.log(event.which);
+          if(event.which === 13) // 13 är tangentens Enter ASCII-kod 
+            addItem();
+      })
+
+      // 3. Arbeta med funktionen addItem
+      function addItem() {
+        // 3.1 Hämta texten som finns i input-fältet med metoden val()
+        let $value = $item.val();
+        if ($value !== "") {
+          // 3.2 Om texten inte är tomt
+          // lägg till en rad i tabellen med metoden append()
+          $row = '<tr>';
+          // 3.2.1 Raden ska innehålla tre celler (td)
+          // 3.2.1.1  td nr 1 innehåller en input med typen checkbox.
+          //          Lägg till klassen done
+          $row += `<td>
+                    <input type="checkbox" class="done">
+                   </td>`;
+          // 3.2.1.2  td nr 2 innehåller texten som du hämtat under steg 3.1
+          $row += `<td>
+                    ${$value}
+                   </td>`;
+          // 3.2.1.3  td nr 3 innehåller en Ta-Bort-Knapp
+          //          Lägg till klassen delete
+          $row += `<td>
+                    <button class="delete btn btn-outline-danger btn-sm float-right">Ta Bort</td>
+                   </td>`;
+
+          $row += '</tr>';
+
+          $table.append($row);
+
+          // Dölj felmeddelandet
+          $("#message").fadeOut(500);
+        } else {
+          console.log("OBS! Visa ett felmeddelande");
+          $("#message").fadeIn(500);
+          //.delay(5000)
+          //.fadeOut(500);
+          // TODO: Arbeta med x-knappen för att dölja 
+        }
+
+        // 3.3 Töm textfältet
+        $item.val('');
+      }
+
+      // 4. Arbeta med checkboxen som har klassen done (se steg 3.2.1.1)
+      // 4.1. Tips: Välj tabellen som selektor och koppla metoden on()
+      //      Metoden click funkar inte på dynamiska element
+      //      Alltså på element som läggs till efter document.ready()
+      //      Syntaxen ser ut så här
+      //      $('table').on('click' , '.done' , function () {} );
+      $table.on('click', '.done' , function () {
+          // console.log("Checkbox i ikryssad");
+          // 4.2  Gå upp i DOM-trädet och leta efter en parent tills du hittar table-taggen
+          //      med metoden parentsUntil()
+          $(this)
+                .parentsUntil('table')  
+                // eller    .parents('tr') 
+          // Växla klassen strike (finns redan i CSS)
+                .toggleClass('strike')
+      });
+
+      // 5. Arbeta med knappen som har klassen delete (se steg 3.2.1.3)
+      // 5.1. Tips:
+      //      $('table').on('click' , '.delete' , function () {} );
+      $table.on('click', '.delete' , function () {
+      // 5.2  Gå upp till table-taggen med metoden parentsUntil
+        $(this).parentsUntil('table')
+      //      Ta bort raden
+               .remove();
+      });
+
+
+    }); // ready
+
+    </script>
+  </body>
+</html>

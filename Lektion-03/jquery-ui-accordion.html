@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery UI Accordion</title>
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+</head>
+<body>
+    
+<h1>jQuery UI - Accordion</h1>
+
+<h2>Produkt 1</h2>
+<div id="accordion1">
+    <h2>Beskrivning</h2>
+    <div>
+      <p>
+      Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+      ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+      amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+      odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+      </p>
+    </div>
+    <h3>Bilder</h3>
+    <div>
+      <img src="https://picsum.photos/200/300" alt="">
+      <img src="https://picsum.photos/199/300" alt="">
+      <img src="https://picsum.photos/201/300" alt="">
+    </div>
+    <h3>Mer info...</h3>
+    <div>
+      <p>
+      Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+      Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+      ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+      lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+      </p>
+      <ul>
+        <li>List item one</li>
+        <li>List item two</li>
+        <li>List item three</li>
+      </ul>
+    </div>
+</div>
+
+<h2>Produkt 2</h2>
+
+<div id="accordion2">
+    <h2>Beskrivning</h2>
+    <div>
+      <p>
+      Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+      ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+      amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+      odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+      </p>
+    </div>
+    <h3>Bilder</h3>
+    <div>
+      <img src="https://picsum.photos/200/300" alt="">
+      <img src="https://picsum.photos/199/300" alt="">
+      <img src="https://picsum.photos/201/300" alt="">
+    </div>
+    <h3>Mer info...</h3>
+    <div>
+      <p>
+      Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+      Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+      ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+      lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+      </p>
+      <ul>
+        <li>List item one</li>
+        <li>List item two</li>
+        <li>List item three</li>
+      </ul>
+    </div>
+</div>
+
+    <!-- 1. Länk till jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 2. Länk till jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- 3. Egen JavaScript-kod -->
+    <script>
+        $( function() {   // document ready (shortcut-syntax)
+
+          $( "#accordion1" ).accordion({
+             collapsible: true,
+             heightStyle: "content"
+          });
+
+          $( "#accordion2" ).accordion({
+             collapsible: true
+          });
+
+        } );  // ready
+    </script>
+
+</body>
+</html>
