@@ -3,7 +3,7 @@
 $(document).ready(function() {
   // 1. Välj alla inputfält som har attributet required
   // Tips: Använd keyup för att validera medans man skriver
-  $("input[required]").blur(validate);
+  $("input[required]").keyup(validate);
   // 2. Vid blur testa om fältet innehåller minst 3 tecken
   function validate () {
     $(this).val().length < 3
