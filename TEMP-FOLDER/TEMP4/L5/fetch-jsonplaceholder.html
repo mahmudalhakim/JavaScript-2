@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Fetch - jsonplaceholder</title>
+    <style>
+      th,
+      td {
+        border-bottom: 1px solid grey;
+      }
+
+      .adress {
+        float: left;
+        padding: 10px;
+        margin: 5px;
+        width: 200px;
+        border: 1px double grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo1"></div>
+    <hr />
+    <div id="demo2"></div>
+    <hr />
+    <div id="demo3"></div>
+
+    <script>
+      let demo1 = document.getElementById("demo1");
+      let demo2 = document.getElementById("demo2");
+      let demo3 = document.getElementById("demo3");
+      
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => response.json())
+        .then(json => {
+          // Skriv ut en lista över alla användare
+          for (let user of json) {
+            demo1.innerHTML += user.name + "<br>";
+          }
+          
+          // Skriv ut en tabell över namn och e-post
+          let output = `<table><tr><th>Name</th><th>Email</th></tr>`;
+          json.forEach(user => {
+            output += `<tr>
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                  </tr>`;
+          });
+          output += "</table>";
+          demo2.innerHTML = output;
+
+          // Skriv ut adressetiketter
+          output = "";
+          json.forEach(user => {
+            output += `<div class="adress">
+                <h4>${user.name}</h4>
+                    ${user.address.street} <br>
+                    ${user.address.suite} <br>
+                    ${user.address.zipcode} <br>
+                    ${user.address.city}
+                </div>`;
+          });
+          demo3.innerHTML = output;
+
+        })
+        .catch(err => console.error(err));
+
+
+    </script>
+  </body>
+</html>
