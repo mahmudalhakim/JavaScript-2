@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dog API</title>
+    <style>
+      .container {
+        text-align: center;
+        font-family: sans-serif;
+      }
+      img {
+        width: auto;
+        height: 70vh;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body class="container">
+    <h1><a href="">Random image from Dog API</a></h1>
+    <img src="" alt="" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        
+        $('h1').on('click' , 'a' , function(event) {
+            event.preventDefault();
+            getImage();
+        });
+
+        function getImage(){
+            $.getJSON('https://dog.ceo/api/breeds/image/random' , function(data){
+                console.log(data.message); // sökväg till en bild
+                $('img').attr('src', data.message);
+            });
+        }
+
+        getImage();
+
+        // Tips:
+        // Simulating a click in jQuery/JavaScript on a link
+        // https://stackoverflow.com/questions/1839363/simulating-a-click-in-jquery-javascript-on-a-link
+        // $("a").trigger("click");
+
+        }); // ready
+    </script>
+  </body>
+</html>

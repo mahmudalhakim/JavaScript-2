@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Ajax</title>
+</head>
+<body>
+    <h1>jQuery Ajax - Demo 2</h1>
+    <h2>Läs en JSON-fil</h2>
+
+    <h3>Hämta en JSON-sträng</h3>
+    <p id="demo1"></p>
+
+    <h3>Hämta data från ett JSON-objekt</h3>
+    <p id="demo2"></p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+       
+        $('#demo1').load('demo.json' , function(data){
+            console.log(data);
+        });
+
+        $.getJSON('demo.json' , function(data){
+            console.log(data);
+            $('#demo2').html(data.name + '<br>' + data.email);
+            
+        })
+    });
+    </script>
+</body>
+</html>

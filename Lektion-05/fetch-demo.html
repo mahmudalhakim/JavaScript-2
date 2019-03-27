@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fetch API</title>
+</head>
+<body>
+    <h1>Fetch API - Demo</h1>
+
+    <script>
+    
+    // Hämta data från en lokal JSON-fil
+    fetch('demo.json')
+        .then(resp => resp.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+
+    // Hämta data från ett API
+    // Hämta en användare från jsonplaceholder
+    fetch('https://jsonplaceholder.typicode.com/users/1')
+        .then(resp => resp.json())
+        .then(json => console.log(json))
+        .catch(err => console.log(err))
+
+    // Hämta 10 användare från jsonplaceholder
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(resp => resp.json())
+        .then(json => console.log(json))
+        .catch(err => console.log(err))
+
+    </script>
+
+</body>
+</html>

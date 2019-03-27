@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dog API
+    </title>
+</head>
+<body>
+    <h1>Dog API - Demo 2</h1>
+    <h2>Hämta en lista över alla hundraser från
+        <a href="https://dog.ceo/dog-api/">
+            https://dog.ceo/dog-api/ 
+        </a>
+    </h2>
+
+    <ol id="breeds"></ol>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+       
+        $.getJSON('https://dog.ceo/api/breeds/list/all' , function(data){
+            console.log(data);    
+            // $('#breeds').html(data.message); // OBS! Funkar inte     
+            $.each(data.message , function(key,value){
+                console.log(key);
+                $('#breeds').append('<li>' + key + '</li>');
+                // Extra övning: Visa sub-breeds som nästalde listor
+
+            })  
+        })
+    
+    });
+    </script>
+</body>
+</html>

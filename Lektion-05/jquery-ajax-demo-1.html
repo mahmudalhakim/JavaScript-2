@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Ajax</title>
+</head>
+<body>
+    <h1>jQuery Ajax - Demo 1</h1>
+    <p id="demo"></p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('#demo').load('demo.txt', function(response, status, xhr){
+            console.log(response);
+            console.log(status);  // Success = OK
+            console.log(xhr);
+        })
+    });
+    </script>
+</body>
+</html>
