@@ -13,19 +13,20 @@
     <h3 id="name"></h3>
 
     <h2>Visa en lista över alla värden som finns i localStorage</h2>
-    <div id="lista"></div>
+    <div id="list"></div>
 
-    <h2>
-      Visa en tabell över alla nyckler och värden som finns i localStorage
-    </h2>
+    <h2>Visa en tabell över alla nyckler och värden som finns i localStorage</h2>
+    <div id="table"></div>
 
     <script>
+
       // Lagra data i localStorage
       localStorage.setItem("name", "Mahmud");
       localStorage.setItem("age", "45");
       localStorage.setItem("mobile", "076-1234123");
       localStorage.setItem("email", "Mahmud@alhakim.se");
 
+      // Hämta data från localStorage
       let name = localStorage.getItem("name");
       console.log(name);
       document.getElementById("name").innerHTML = name;
@@ -41,67 +42,90 @@
         console.log("Value: " + localStorage.getItem(localStorage.key(i)));
       }
 
-      // Skapa en lista
-      let values = "<ul>";
-      for (var i = 0; i < localStorage.length; i++) {
-        values += "<li>" + localStorage.getItem(localStorage.key(i)) + "</li>";
+      // Skapa en lista över alla värden
+      let lista = '<ol>';
+      for (let i = 0; i < localStorage.length; i++) {
+        lista += '<li>' + localStorage.getItem(localStorage.key(i)) + '</li>';
       }
-      values += "</ul>";
-      document.getElementById("lista").innerHTML = values;
+      lista += '</ol>'  
+      document.getElementById('list').innerHTML = lista;
+
+      // Skapa en tabell över alla nycklar och värden som finns i localStorage
+      let tabell = '<table border=1> <tr> <th>Key</th>  <th>Value</th>  </tr>';
+      for (let i = 0; i < localStorage.length; i++) {
+        tabell += `<tr>
+                        <td> ${localStorage.key(i)} </td>
+                        <td> ${localStorage.getItem(localStorage.key(i))} </td>
+                   </tr>`;
+      }
+      tabell += '</table>';
+      document.getElementById('table').innerHTML = tabell;
 
       // Ta bort data från localStorage
-      localStorage.removeItem("name");
-
-      // Test
-      name = localStorage.getItem("name");
-      console.log(name); // null
-
-      // Rensa localStorage
-      localStorage.setItem("name", "Mahmud");
-      // localStorage.clear();
+      localStorage.removeItem('age');
+      // console.log(localStorage);
       console.table(localStorage);
+      
+      // Rensa allt som finns i localStorage
+      localStorage.clear();
+      
+      console.table(localStorage);
+
+      // OBS! Du får null om du försöker hämta data som inte existerar i localStorage
+      let test = localStorage.getItem('name');
+      console.log(test);  // null 
 
       // Spara en array i localStorage
-      let myArray = ["A", "B", "C"];
-      localStorage.setItem("myArray", myArray);
+      let myArray = ['A' , 'B' , 'C'];
+      
+      // Försök 1 - Skapa key/value direkt (PROBLEM)
+      localStorage.setItem('myArray' , myArray); // Vår array sparas som sträng
+      console.table(localStorage);
+      let arrayFromLS = localStorage.getItem('myArray');
+      console.log(typeof arrayFromLS);
+      for (const i of arrayFromLS) {
+         console.log(i); // Vi itererar över alla tecken i strängen !!!!
+      }
+
+      // Lönsing
+      // Konvertera alltid en array till en JSON-sträng innan du lagrar i LS
+      let myJSON = JSON.stringify(myArray);
+      console.log(myJSON);
+      localStorage.setItem('myArray', myJSON);
       console.table(localStorage);
 
-      // Hämta en array från localStorage
-      let getArray = localStorage.getItem("myArray");
-      console.log(getArray);
-      console.log(typeof getArray); // OBS! string (problem!!!)
-      for (const i of getArray) {
-        console.log(i); // Fel - kommatecken räknas som element i arrayen!
-      }
-      // Lösning till ovanstående problem
-      // Spara en array som en JSON-sträng i localStorage
-      localStorage.setItem("myArray", JSON.stringify(myArray));
-      getArray = JSON.parse(localStorage.getItem("myArray"));
-      console.log(typeof getArray); // object (mycket bra)
-      console.log(getArray); // Vi får en array :-)
-      for (const i of getArray) {
-        console.log(i); // Enbart element i arrayen skrivs ut :-)
-      }
+      // Hämta en array från LS
+      myArray = localStorage.getItem('myArray');
+      console.log(myArray);
+      console.log(typeof myArray);
 
-      // Spara ett objekt i localStorage
+      // Konvertera tillbaka från en JSON-sträng till en array
+      myArray = JSON.parse(myArray);
+      console.log(myArray);
+      console.log(typeof myArray);
+      // Vi har nu en array ;-)
+      myArray.forEach( v => console.log(v) );
+
+
+      // Spara objekt i LS
       let myObj = {
-        first: "A",
-        second: "B",
-        third: "C"
-      };
-      localStorage.setItem("myObj", myObj);
-      // Hämta ett objekt från localStorage
-      let getObj = localStorage.getItem("myObj");
-      console.log(getObj);
-      console.log(typeof getObj); // OBS! string (problem!!!)
-      // Lösning till ovanstående problem
-      // Spara ett objekt som en JSON-sträng i localStorage
-      localStorage.setItem("myObj", JSON.stringify(myObj));
-      getObj = JSON.parse(localStorage.getItem("myObj"));
-      console.log(typeof getObj); // object (mycket bra)
-      console.log(getObj); // Mycket bättre :-)
+          first:  'A',
+          second: 'B',
+          third:  'C'
+      }
+      // Försök 1: Spara objektet direkt i LS
+      localStorage.setItem('myObj' , myObj);  // FEL - ERROR 
+      console.log(localStorage.getItem('myObj')); // => "[object Object]"
+
+      // Lösning: Konvertera objektet till en JSON-sträng
+      let myJSON2 = JSON.stringify(myObj)
+      // Nu kan vi spara objektet i LS utan problem
+      localStorage.setItem('myObj' , myJSON2);
       console.table(localStorage);
 
+      // Hämta objektet från LS
+      myObj =  JSON.parse(localStorage.getItem('myObj'));
+      console.log(myObj);
       
     </script>
   </body>
