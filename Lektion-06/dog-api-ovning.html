@@ -35,29 +35,85 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        
-      // document ready
-      $(() => loadDogs());
 
-      function loadDogs() {
-        $.getJSON("https://dog.ceo/api/breeds/list/all", res => {
-          $.each(res.message, dog =>
-            $("select").append(`<option value="${dog}">${dog}</option>`)
-          );
-        });
-      } 
+    // Document ready
+    $(document).ready(function(){
 
-      function getDog() {
-        var selected = $("option:selected").val();
-        url = "https://dog.ceo/api/breed/" + selected + "/images/random";
-        $.getJSON(url, res => $("#image").attr("src", res.message).hide().fadeIn(1000));
-      } 
+    });
 
-      $("select").on("change", () => getDog());
+    // Shortcut syntax
+    $(function() {
 
+    })
+
+    // Document ready med ES6 Syntax med Arrow-functions
+    $( () => {
+        getDogs();
+     } 
+    );
+
+    function getDogs(){
+      
+        // Endpoint - hämta alla hundraser
+        let url = 'https://dog.ceo/api/breeds/list/all';
+
+        $.getJSON(url, function(response){
+            console.log(response);
+            // dogs är en collection som innehåller key/value
+            // key är en hundras 
+            // value är en array med sub-breeds
+            let dogs = response.message;
+            console.log(dogs);
+            
+            $.each(dogs, function(dog) {
+                console.log(dog);
+                $('select').append(`<option value="${dog}">${dog}</option>`);
+            })
+
+            // eller med en arraw-function istället för standard function
+            // $.each(dogs,(dog)=>$('select').append(`<option value="${dog}">${dog}</option>`))
+
+        })
+    }  // getDogs
+
+
+    // Skapa en event-lyssnare (händelsehanterare) på select-menyn
+    $('select').on('change' , function () {
+        getDog();
+    }) 
+    
+    // elle med en arraw-function
+    // $('select').on('change', () => getDog() )
+
+    function getDog() {
+        // Hämta ett värde från option-elementet
+        let dog = $('option:selected').val();
+        console.log(dog);
+
+        // Hämta en random bild på en specifik hund
+        // Skapa en endpoint
+        let url = "https://dog.ceo/api/breed/"+dog+"/images/random";
+        console.log(url);
+
+        // Hämta data från servern
+        $.getJSON(url , function (data) {
+            console.log(data);
+            let imageURL = data.message;
+            console.log(imageURL);
+            $('#image')
+                .attr('src', imageURL)
+                .hide()
+                .fadeIn(1000);
+        })
+    }
+
+
+/*
+
+  
       $(document).keydown(function(e){
         console.log(e.keyCode);
-        if(e.keyCode == 39){
+        if(e.keyCode == 39){  // Högerpil
           var selected = $("option:selected").next().val();
           console.log(selected);
           $("option:selected")
@@ -65,7 +121,7 @@
             .next()
             .prop("selected", true);
         }
-        if(e.keyCode == 37){
+        if(e.keyCode == 37){  // Vänsterpil
           var selected = $("option:selected").prev().val();
           console.log(selected);
           $("option:selected")
@@ -79,7 +135,7 @@
     
 
       });
-
+*/
 
     </script>
   </body>

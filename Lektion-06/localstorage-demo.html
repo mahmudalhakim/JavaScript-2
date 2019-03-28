@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Local Storage Demo</title>
+  </head>
+  <body>
+    <h1>Local Storage Demo</h1>
+
+    <h2>Hämta data från localStorage</h2>
+    <h3 id="name"></h3>
+
+    <h2>Visa en lista över alla värden som finns i localStorage</h2>
+    <div id="lista"></div>
+
+    <h2>
+      Visa en tabell över alla nyckler och värden som finns i localStorage
+    </h2>
+
+    <script>
+      // Lagra data i localStorage
+      localStorage.setItem("name", "Mahmud");
+      localStorage.setItem("age", "45");
+      localStorage.setItem("mobile", "076-1234123");
+      localStorage.setItem("email", "Mahmud@alhakim.se");
+
+      let name = localStorage.getItem("name");
+      console.log(name);
+      document.getElementById("name").innerHTML = name;
+
+      // Hämta alla nycklar
+      for (let i = 0; i < localStorage.length; i++) {
+        console.log("Key: " + localStorage.key(i));
+        // console.log(localStorage[i]); // undefined
+      }
+
+      // Hämta alla värden
+      for (let i = 0; i < localStorage.length; i++) {
+        console.log("Value: " + localStorage.getItem(localStorage.key(i)));
+      }
+
+      // Skapa en lista
+      let values = "<ul>";
+      for (var i = 0; i < localStorage.length; i++) {
+        values += "<li>" + localStorage.getItem(localStorage.key(i)) + "</li>";
+      }
+      values += "</ul>";
+      document.getElementById("lista").innerHTML = values;
+
+      // Ta bort data från localStorage
+      localStorage.removeItem("name");
+
+      // Test
+      name = localStorage.getItem("name");
+      console.log(name); // null
+
+      // Rensa localStorage
+      localStorage.setItem("name", "Mahmud");
+      // localStorage.clear();
+      console.table(localStorage);
+
+      // Spara en array i localStorage
+      let myArray = ["A", "B", "C"];
+      localStorage.setItem("myArray", myArray);
+      console.table(localStorage);
+
+      // Hämta en array från localStorage
+      let getArray = localStorage.getItem("myArray");
+      console.log(getArray);
+      console.log(typeof getArray); // OBS! string (problem!!!)
+      for (const i of getArray) {
+        console.log(i); // Fel - kommatecken räknas som element i arrayen!
+      }
+      // Lösning till ovanstående problem
+      // Spara en array som en JSON-sträng i localStorage
+      localStorage.setItem("myArray", JSON.stringify(myArray));
+      getArray = JSON.parse(localStorage.getItem("myArray"));
+      console.log(typeof getArray); // object (mycket bra)
+      console.log(getArray); // Vi får en array :-)
+      for (const i of getArray) {
+        console.log(i); // Enbart element i arrayen skrivs ut :-)
+      }
+
+      // Spara ett objekt i localStorage
+      let myObj = {
+        first: "A",
+        second: "B",
+        third: "C"
+      };
+      localStorage.setItem("myObj", myObj);
+      // Hämta ett objekt från localStorage
+      let getObj = localStorage.getItem("myObj");
+      console.log(getObj);
+      console.log(typeof getObj); // OBS! string (problem!!!)
+      // Lösning till ovanstående problem
+      // Spara ett objekt som en JSON-sträng i localStorage
+      localStorage.setItem("myObj", JSON.stringify(myObj));
+      getObj = JSON.parse(localStorage.getItem("myObj"));
+      console.log(typeof getObj); // object (mycket bra)
+      console.log(getObj); // Mycket bättre :-)
+      console.table(localStorage);
+
+      
+    </script>
+  </body>
+</html>
