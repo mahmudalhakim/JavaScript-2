@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS - Demo 5</title>
+</head>
+<body>
+    <h1>AngularJS - Demo 5</h1>
+    <h2>ng-init – Exempel 3</h2>
+    <h2>Skapa flera variabler med ng-init</h2>
+    
+    <div ng-app>
+       
+        <div ng-init="qty=1;cost=10">
+            <p>
+                <b>Antal</b>  <br>
+                <input type="number" min="0" ng-model="qty" >
+            </p>
+            <p>
+                <b>Pris</b>  <br>
+                <input type="number" min="0" ng-model="cost" >
+            </p>
+            <p>
+                <b>Totalt: {{ qty * cost}}  </b> 
+            </p>
+
+        </div>
+       
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src=""></script>
+</body>
+</html>

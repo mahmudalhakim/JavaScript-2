@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS - Demo 3</title>
+</head>
+<body>
+    <h1>AngularJS - Demo 4</h1>
+    <h2>ng-init – Exempel 2</h2>
+    <h2>Skapa objekt med ng-init</h2>
+    
+    <div ng-app>
+        <!--       
+            Skapa objekt med ng-init
+            Skapa ett objekt som heter person
+            Objektet har två egenskaper
+            firstName och lastName
+            Initiera objektet med valfri data
+        -->
+        
+        <div ng-init="person={firstName:'Mahmud', lastName:'Al Hakim'}">
+            <h3>
+                {{person.firstName}}
+                {{person.lastName}}
+            </h3>
+            <h4>{{person.firstName}} {{person.lastName}}</h4>
+            <h5>{{person.firstName + ' ' + person.lastName}}</h5>
+            <p>
+                <strong>{{person.firstName}} </strong>
+                <em>{{person.lastName}} </em>
+            </p>
+            <p >
+                <span style="color:pink">{{person.firstName}}</span>
+                <span style="color:maroon">{{person.lastName}}</span>
+            </p>
+        </div>
+       
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src=""></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS - Demo 2</title>
+</head>
+<body>
+    <h1>AngularJS - Demo 2</h1>
+    <h2>ng-include</h2>
+    <div ng-app>
+        <!-- 
+            Inkludera filer med direktivet 
+            ng-include
+            OBS! 
+            1. Skicka filnamnet som en sträng t.ex. 'nav.html'
+            2. Kör filen via en server 
+            t.ex. LiveServer som finns i VS Code
+            3. Vi måste ha en ng-app
+        -->
+       <div ng-include="'nav.html'"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src=""></script>
+</body>
+</html>

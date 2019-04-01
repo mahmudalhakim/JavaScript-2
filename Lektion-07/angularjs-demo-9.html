@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AngularJS - Demo 9</title>
+  </head>
+  <body ng-app="app">
+    <h1>AngularJS - Demo 9</h1>
+    <h2>Mer om controller och scope</h2>
+
+    <div ng-controller="personCtrl">
+        <p>
+            Ange förnamn    <br>
+            <input type="text" ng-model="firstName">
+        </p>
+        <p>
+            Ange efternamn  <br>
+            <input type="text" ng-model="lastName">
+        </p>
+        <h3>{{ fullName() }}</h3>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+   <script src="angularjs-demo-9.js"></script>
+  </body>
+</html>

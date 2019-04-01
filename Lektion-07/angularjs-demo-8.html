@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AngularJS - Demo 8</title>
+  </head>
+  <body>
+    <h1>AngularJS - Demo 8</h1>
+    <h2>Arbeta med scope</h2>
+
+    <div ng-app="myApp">
+        <h1 ng-controller="myCtrl">
+            {{ firstName + ' ' + lastName }}
+       
+        </h1>
+        
+        <h2 ng-controller="myCtrl2">
+            {{ firstName + ' ' + lastName }}
+        </h2>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script>
+
+        // Skapa en AngularJS-modul
+        let app = angular.module("myApp", []);
+
+        // Skapa en controller
+        app.controller("myCtrl" , function ($scope) {
+            $scope.firstName = "Mahmud";
+            $scope.lastName  = "Al Hakim";
+        } );
+
+        // Skapa en controller
+        app.controller("myCtrl2" , function ($scope) {
+            $scope.firstName = "Kalle";
+            $scope.lastName  = "Anka";
+        } );
+    </script>
+  </body>
+</html>

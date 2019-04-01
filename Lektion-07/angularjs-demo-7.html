@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AngularJS - Demo 7</title>
+  </head>
+  <body>
+    <h1>AngularJS - Demo 7</h1>
+    <h2>Arbeta med moduler</h2>
+
+    <div ng-app="myApp">
+        <h1 ng-controller="myCtrl as c">
+            {{ c.firstName + ' ' + c.lastName }}
+        </h1>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script>
+
+        // Skapa en AngularJS-modul
+        let app = angular.module("myApp", []);
+
+        // Skapa en controller
+        app.controller("myCtrl" , function () {
+            this.firstName = "Mahmud";
+            this.lastName  = "Al Hakim";
+        } );
+    </script>
+  </body>
+</html>

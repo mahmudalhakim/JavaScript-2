@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AngularJS - Demo 10</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body class="container" ng-app="app">
+    <h1>AngularJS - Övning</h1>
+
+    <table class="table table-hover" ng-controller="carCtrl">
+      <tr class="table-info">
+        <th>RegNr</th>
+        <th>Modell</th>
+      </tr>
+      <tr ng-repeat="car in cars">
+        <td>{{ car.Regnr }}</td>
+        <td>{{ car.Modell }}</td>
+      </tr>
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script>
+      // Skapa en AngularJS-modul
+      let app = angular.module("app", []);
+
+      // Skapa en controller
+      app.controller("carCtrl", function($scope) {
+        $scope.cars = [
+          { Regnr: "ABC123", Modell: "Volvo V40" },
+          { Regnr: "XYZ987", Modell: "Volvo XC60" }
+        ];
+      });
+    </script>
+  </body>
+</html>
