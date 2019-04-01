@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="w3template.css">
+    <title>Min inköpslista</title>
+</head>
+<body class="w3-container w3-content w3-auto w3-padding-16" style="max-width:400px;">
+<div ng-app="myShoppingList" ng-cloak ng-controller="myCtrl" class="w3-card-2">    
+        <header class="w3-container w3-light-grey">
+            <h3>Min inköpslista</h3>
+        </header>
+        <ul class="w3-ul">
+            <li ng-repeat="x in products" class="w3-padding-16">{{x}}
+                <span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">×</span>
+            </li>
+        </ul>
+        <div class="w3-container w3-light-grey w3-padding-16">
+            <div class="w3-row w3-margin-top">
+                <div class="w3-col s8">
+                    <input placeholder="Vad vill du handla idag"  ng-keydown="$event.which === 13 && addItem()"  
+                    ng-model="addMe" class="w3-input w3-border w3-padding">
+                </div>
+                <div class="w3-col s4">
+                    <button ng-click="addItem()" class="w3-btn w3-padding w3-green">Lägg till</button>
+                </div>
+            </div>
+            <p class="w3-padding-left w3-text-red">{{errortext}}</p>
+        </div>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+<script>
+var app = angular.module("myShoppingList", []);
+app.controller("myCtrl", function($scope) {
+    $scope.products = ["Mjölk", "Bröd", "Ost"];
+    $scope.addItem = function () {
+        $scope.errortext = "";
+        if (!$scope.addMe) {return;}
+        if ($scope.products.indexOf($scope.addMe) == -1) {
+            $scope.products.push($scope.addMe);
+        } else {
+            $scope.errortext = "Produkten finns redan i din lista!";
+        }
+    }
+    $scope.removeItem = function (index) {
+        $scope.errortext = "";
+        $scope.products.splice(index, 1);
+    }
+});
+</script>
+</body>
+</html>
