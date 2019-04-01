@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AngularJS - Demo 11</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container" ng-app="app">
+    <h1>AngularJS - Filters</h1>
+
+    <div ng-controller="nameCtrl">
+      <h2>Visa alla namn</h2>
+      <ul>
+        <li ng-repeat="name in names">
+          {{ name }}
+        </li>
+      </ul>
+
+      <h2>Visa alla namn som innehåller bokstaven M</h2>
+      <ul>
+        <li ng-repeat="name in names | filter: 'M'">
+          {{ name }}
+        </li>
+      </ul>
+
+      <h2>Filtrera listan genom att binda ett textfält</h2>
+      <!-- Bina textfältet till filtret -->
+      <input type="text" ng-model="indata" />
+      <ul>
+        <li ng-repeat="name in names | filter: indata ">
+          {{ name }}
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script>
+      let app = angular
+        .module("app", [])
+        .controller("nameCtrl", function($scope) {
+          $scope.names = ["Mahmud", "Kalle", "Erik", "Yasmin", "Yasir"];
+        });
+    </script>
+  </body>
+</html>
