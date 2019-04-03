@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Closures och IIFE</title>
+  </head>
+  <body>
+    <h1>Closures och IIFE</h1>
+    <script>
+
+      // Skapa en Closure genom att returnera en funktion
+      function outer() {
+        let a = 1;
+        return function(b) {
+          a = a + b;
+          console.log(a);
+        };
+      }
+      let inner = outer();
+      inner(1); // 2
+      inner(2); // 4
+
+      // IIFE 
+      (function() {
+        console.log("Jag är en IIFE");
+      })();
+
+      // En Closure med en IIFE
+      let myClosure = (function() {
+        let a = 1;
+        return function(b) {
+          a = a + b;
+          console.log(a);
+        };
+      })();
+      myClosure(1); // 2
+      myClosure(2); // 4
+
+    </script>
+  </body>
+</html>

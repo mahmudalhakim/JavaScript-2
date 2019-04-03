@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript - Exekveringskontext</title>
+  </head>
+  <body>
+    <script>
+
+      let course = {
+        
+        title: "JavaScript",
+        
+        info1: function() {
+          
+          console.log("-- info 1 --");
+          
+          // En referens till det aktuella objektet
+          let self = this; 
+
+
+          console.log(this);   // Objektet course
+          console.log(self);   // Objektet course
+          console.log(course); // Objektet course
+
+          // En funktion inne i metoden info1
+          function demo1() {
+            // Problem: this pekar på window
+            console.log("Inne i en funktion: ", this); // window
+            // Lösning 1
+            console.log(self);
+            // Lösning 2
+            console.log(course);
+          }
+          demo1();
+
+          // Lösning 3: Skapa en arrow-funktion istället
+          // => Fat Arrow 
+          // -> Arrow (används t.ex i PHP) ->
+          demo2 = () => console.log("Inne i en arrow-funktion: ", this);
+          demo2();
+        },
+
+        // Övning 1
+        students: ["Mahmud", "Kalle", "Erik"],
+        info2: function() {
+          console.log("-- info 2 --");
+
+          this.students.forEach(function(s) {
+            // OBS! Här finns en ny funktion (en callback)
+            // som inte tillhör objektet course
+            // this i denna funktion refererar till window
+            // Utskrift i console är...
+            // Mahmud läser undefined
+            // Kalle läser undefined
+            // Erik läser undefined
+            console.log(s + " läser " + this.title);
+          });
+
+          // Lösning 1 - Fat Arrow Function
+          // Arrow-funktioner har inte en egen this
+          // this i arrow-funktioner refereras till det aktuella objektet
+          this.students.forEach(s => console.log(s + " läser " + this.title));
+
+          // Lösning 2 - this = that eller self
+          // Skapa en referens till det aktuella objektet
+          // Använd denna lösning om du behöver IE11
+          let that = this;
+          this.students.forEach(function(s) {
+            console.log(s + " läser " + that.title);
+          });
+        },
+
+        // Övning 2
+        info3: function() {
+          console.log("-- info 3 --");
+          console.log(this);
+
+          let self = this;
+          
+          function skrivUt() {
+            console.log("Här kommer en utskrift på objektet");
+            // Vad gör satsen nedan?
+            //this.print();
+            
+            // Svar
+            // Ovanstående sats är samma som
+            // window.print()
+            // Metoden print i window skriver ut webbsidan
+            // https://www.w3schools.com/jsref/met_win_print.asp
+            // Lösning
+            // Skapa en eferens till det aktuella objektet (se rad 80)
+            self.print();
+          }
+          skrivUt();
+        },
+
+        print: function() {
+          let text = `
+          Title: ${this.title}
+          Students: ${this.students}`;
+          console.log(text);
+        },
+
+        // Övning 3 - Vad visas i console efter exekvering av nedanstående metod
+        info4 : () => {
+          console.log("-- info 4 --");
+          let text = `
+          Title: ${this.title}
+          Students: ${this.students}`;
+          console.log(text);
+
+          // OBS! this pekar på window
+          // Arrow-funktioner har ingen this
+          console.log(this);
+        },
+
+      };
+
+      course.info1();
+      course.info2();
+      course.info3();
+      course.info4();
+
+    </script>
+  </body>
+</html>
