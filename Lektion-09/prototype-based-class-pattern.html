@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototype-based Class Pattern</title>
+</head>
+<body>
+    <h1>Prototype-based Class Pattern</h1>
+
+    <script>
+    
+    // Prototype-based Class Pattern
+    // Prototypen lagrar/hanterar data
+    function User(name , birthday){
+        this._name = name;
+        this._birthday = birthday;
+    }
+
+    // Lägg till en publik metod i prototypen User
+    User.prototype.sayHi = function () {
+        return `Hello ${this._name}, Age: ${this._calcAge()}` ;
+    }
+
+    // Lägg till en privat metod i prototypen User
+    User.prototype._calcAge = function () {
+        let birthDate = new Date(this._birthday);
+        return new Date().getFullYear() - birthDate.getFullYear();
+    }
+
+
+    // Skapa objekt av prototypen User
+    let user = new User('Mahmud' , '1973 02 02' );
+    console.log(user);
+    console.log(user.sayHi());
+    console.log(user._name);
+
+    // Arv (Inheritance)
+    // Alla objekt i JS ärver från Object (OBS! Stort O)
+    // Object är en bas-klass (Superklass, Bas-prototyp)
+    // Vi har tillgång till alla metoder som finns i prototypen Object
+    console.log(user.hasOwnProperty('_name')); // true
+    console.log(user.hasOwnProperty('_age'));  // false
+
+    </script>
+</body>
+</html>

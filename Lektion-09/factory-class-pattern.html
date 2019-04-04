@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Factory Class Pattern</title>
+</head>
+<body>
+    <h1>Factory Class Pattern</h1>
+
+    <script>
+    
+    // Factory Class Pattern
+    function User(name , birthday){
+
+        // En privat metod som beräknar ålder
+        function calcAge(){
+            let birthDate = new Date(birthday);
+            return new Date().getFullYear() - birthDate.getFullYear();
+        }
+        // En factory returnerar publika metoder i ett objekt
+        return{
+            sayHi() {
+                return `Hello ${name}, age: ${calcAge()}` ;
+            },
+            sayBye() {
+                return `Bye ${name}` ;
+            }
+        }
+    }
+
+    // Skapa objekt av klassen User
+    // OBS! new behövs inte i factory
+    let user = User('Mahmud' , '1973 02 02' );
+
+    console.log(user);
+    console.log(user.sayHi());
+    console.log(user.sayBye());
+    </script>
+</body>
+</html>

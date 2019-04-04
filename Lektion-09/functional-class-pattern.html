@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Functional Class Pattern</title>
+</head>
+<body>
+    <h1>Functional Class Pattern</h1>
+
+    <script>
+    
+    // Functional Class Pattern
+    // birthday är en sträng t.ex. 19730202
+    function User(name , birthday){
+        this.sayHi = function () {
+            return `Hello ${name}, age: ${calcAge()}` ;
+        }
+
+        // En privat metod som beräknar ålder
+        function calcAge(){
+            let birthDate = new Date(birthday);
+            return new Date().getFullYear() - birthDate.getFullYear();
+        }
+    }
+
+    // Skapa ett objekt av klassen User
+    let user = new User('Mahmud');
+    let jone = new User('Jone');
+
+    console.log(user);
+    // console.log(jone);
+
+    // Privata egenskaper
+    //console.log(user.name); // undefined - mycket bra
+    
+    // Publicka egenskaper
+    user.name = 'Kalle Anka';  // En helt ny egenskap skapas
+    //console.log(user.name);
+    
+    
+    let user2 = new User('Mahmud' , '1973 02 02');
+
+    // Publika metoder
+    // console.log(user.sayHi());
+    // console.log(jone.sayHi());
+    console.log(user2.sayHi());
+
+    // Privata metoder
+    console.log(user2.calcAge()); // TypeError: user2.calcAge is not a function
+
+
+
+
+
+    </script>
+</body>
+</html>

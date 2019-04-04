@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Clock</title>
+  </head>
+  <body>
+    <h1>Clock</h1>
+    <script src="clock.js"></script>
+    <script>
+      
+      let clock = new Clock("h:m:s");
+      console.log(clock);
+      
+      clock.start();
+
+      setTimeout(() => {
+          clock.stop();
+          console.log("Clock 1 Timeout");
+      }, 5000);
+
+
+      let clock2 = new Clock("h:m");
+      console.log(clock2);
+      
+      clock2.start();
+
+      setTimeout(() => {
+          clock2.stop();
+          console.log("Clock 2 Timeout");
+      }, 5000);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Point</title>
+  </head>
+  <body>
+    <h1>Prototype-based Class Pattern</h1>
+    <h2>Övning – Point</h2>
+    <ol>
+      <li>Skapa en konstruktor som beskriver en punkt i en tvådimensionell värld.</li>
+      <li>Skapa en metod i prototypen som beräknar avståndet mellan två punkter.</li>
+      <li>Skapa två punkter(två objekt).</li>
+      <li>Beräkna avståndet mellan punkterna.</li>
+    </ol>
+
+    <h2>Punkt A</h2>
+    <p>
+      Ange x
+      <input type="number" id="x1" />
+    </p>
+    <p>
+      Ange y
+      <input type="number" id="y1" />
+    </p>
+
+    <h2>Punkt B</h2>
+    <p>
+      Ange x
+      <input type="number" id="x2" />
+    </p>
+    <p>
+      Ange y
+      <input type="number" id="y2" />
+    </p>
+
+    <button id="calc">Avståndet mellan punkt A och punkt B</button>
+    <h2 id="result"></h2>
+
+    <script>
+      // Point 1
+      let x1 = document.querySelector("#x1");
+      let y1 = document.querySelector("#y1");
+
+      // Point 2
+      let x2 = document.querySelector("#x2");
+      let y2 = document.querySelector("#y2");
+
+      // Button
+      let calcBtn = document.querySelector("#calc");
+
+      // Result
+      let result = document.querySelector("#result");
+
+      // Add Event Listener
+      calcBtn.addEventListener("click", calcuate);
+
+      // Skapa en konstruktor som besrkiver en punkt
+      function Point(x, y) {
+        this.x = x;
+        this.y = y;
+      }
+
+      // Skapa en metod i prototypen som beräknar avståndet 
+      // mellan två punkter.
+
+      Point.prototype.distance = function(p) {
+        let dx = this.x - p.x;
+        let dy = this.y - p.y;
+        return Math.sqrt(dx ** 2 + dy ** 2);
+      }
+
+      function calcuate() {
+        
+        // Skapa två punkter(två objekt).
+        let p1 = new Point(x1.value, y1.value);
+        console.log(p1);
+        
+        let p2 = new Point(x2.value, y2.value);
+        console.log(p2);
+
+        // Beräkna avståndet mellan punkterna.
+        distance = p1.distance(p2);
+        console.log(distance);
+
+        // Visa resultatet
+        result.textContent = distance.toFixed(4);
+      }
+
+    </script>
+  </body>
+</html>
