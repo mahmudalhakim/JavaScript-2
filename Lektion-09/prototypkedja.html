@@ -28,20 +28,19 @@
       // Rabbit ärver Animal's prototyp
       // Rabbit.prototype = Animal.prototype; // Fel, farligt
       Rabbit.prototype = Object.create(Animal.prototype);
-          
+
       // Lägg till en metod i kaninens prototyp
       Rabbit.prototype.jump = function() {
         return `${this.name} jumps!`;
       };
-      
-      
+
       // Skapa ett objekt (en instans) av klassen Animal
       let myAnimal = new Animal("My animal");
       console.log(myAnimal);
-      
+
       // Använd metoden eat
       console.log(myAnimal.eat());
-      
+
       // Skapa ett objekt av klassen Rabbit
       let myRabbit = new Rabbit("My rabbit");
       console.log(myRabbit);
@@ -52,6 +51,18 @@
       // Använd metoden eat som finns i prototypen Animal
       console.log(myRabbit.eat());
 
+      // Sista steget
+      // Vad är kaninens konstruktor efter allt detta?
+      console.log(myRabbit.constructor);
+      // OBS! Rabbit har Animal som konstruktor!
+      // Animal(name) { this.name = name; }
+
+      // Vi behöver fixa detta genom att sätta tillbaka konstruktorn
+      Rabbit.prototype.constructor = Rabbit;
+      
+      console.log(myRabbit.constructor); // Mycket bättre ;-)
+
+      
     </script>
   </body>
 </html>
